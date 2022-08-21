@@ -5,7 +5,7 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 const config = require("./config.json")
 const eventosLista = require("./models/eventosLista.js")
 const report = require("./models/reportModel.js")
-//teste
+
 
 
 //BOT INICIADO
