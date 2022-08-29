@@ -1,4 +1,6 @@
 config.json
-discloud.config
-package.json
+node_modules/
+package-lock.json/
 package-lock.json
+discloud.config
+.gitignore
