@@ -9,7 +9,7 @@ module.exports = {
         if(dados.d.user_id == "972697835856334858" || dados.d.user_id == "970043993914237038") return
         let participantes = consulta[0].participantes
         let limites = consulta[0].limites
-        //if(participantes.includes(dados.d.user_id)) return
+        if(participantes.includes(dados.d.user_id)) return
         
         let msg = await client.channels.cache.get(dados.d.channel_id).messages.fetch(dados.d.message_id)
         let embed = msg.embeds[0]

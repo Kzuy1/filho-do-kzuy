@@ -12,8 +12,8 @@ module.exports = {
         } else {
             let data = args[0]
             let horario = args[1]
-            if(!data) return message.reply("Comando inválido digite k!wblista DD/MM/AAAA HH:MM")
-            if(!horario) return message.reply("Comando inválido digite k!wblista DD/MM/AAAA HH:MM")
+            if(!data) return message.reply("Comando inválido digite k!fflista DD/MM/AAAA HH:MM")
+            if(!horario) return message.reply("Comando inválido digite k!fflista DD/MM/AAAA HH:MM")
             const exampleEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .setTitle(`Fame Farm`)
