@@ -30,7 +30,7 @@ client.on("raw", async dados => {
   if (consulta != false) {
     try {
       const commandReactions = require(`./reactions/${consulta[0].evento}.js`)
-      commandReactions.run(client, dados)
+      commandReactions.run(client, dados, consulta)
     } catch (err) {
       console.log(err)
     }
