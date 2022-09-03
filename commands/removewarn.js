@@ -26,7 +26,6 @@ module.exports = {
                     {report: reportArray}
                 )
                 message.reply("Warn removido!")
-                //teste
               
             }
         }
