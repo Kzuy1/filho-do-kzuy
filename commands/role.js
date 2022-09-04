@@ -31,27 +31,38 @@ module.exports = {
         if(dados == false) return message.reply(`Usuário não está cadastrado. Mande messagem para <@307683313982767104> para informar o erro.`)
         let nickname = dados[0].nickname
         let roles = []
-
-        for(i = 0; i < 2; i++){
-            if (args[i] == 1) {roles.push(role[0])}
-            if (args[i] == 2) {roles.push(role[1])}
-            if (args[i] == 3) {roles.push(role[2])}
-            if (args[i] == 4) {roles.push(role[3])}
-            if (args[i] == 5) {roles.push(role[4])}
-
-        }
-        message.member.setNickname(`VD | ${roles[0]} ${roles[1]} | ${nickname}`)
-
-
-
-
-
-
-
-
-
-
-
         
+        setTimeout(function(){if(message.member.roles.cache.has("833103531057610802")) {message.member.roles.remove("833103531057610802")}}, 500)
+        setTimeout(function(){if(message.member.roles.cache.has("833103571926122526")) {message.member.roles.remove("833103571926122526")}}, 500)
+        setTimeout(function(){if(message.member.roles.cache.has("833103600489594920")) {message.member.roles.remove("833103600489594920")}}, 500)
+        setTimeout(function(){if(message.member.roles.cache.has("833103632765026314")) {message.member.roles.remove("833103632765026314")}}, 500)
+        setTimeout(function(){if(message.member.roles.cache.has("833103662288601158")) {message.member.roles.remove("833103662288601158")}}, 500)
+        
+        for(i = 0; i < 2; i++){
+            switch (args[i]){
+                case "1" :
+                    roles.push(role[0])
+                    setTimeout(function(){ message.member.roles.add("833103531057610802") }, 500)
+                    break
+                case "2":
+                    roles.push(role[1])
+                    setTimeout(function(){ message.member.roles.add("833103571926122526") }, 500)
+                    break
+                case "3":
+                    roles.push(role[2])
+                    setTimeout(function(){ message.member.roles.add("833103600489594920") }, 500)
+                    break
+                case "4":
+                    roles.push(role[3])
+                    setTimeout(function(){ message.member.roles.add("833103632765026314") }, 500)
+                    break
+                case "5":
+                    roles.push(role[4])
+                    setTimeout(function(){ message.member.roles.add("833103662288601158") }, 500)
+                    break
+            }
+        }
+        message.member.setNickname(`VD | ${roles[0]} - ${roles[1]} | ${nickname}`)
+        message.reply("Roles configuradas!!")
     }
 }
