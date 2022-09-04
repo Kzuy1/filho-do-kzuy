@@ -20,7 +20,7 @@ module.exports = {
 
         }
         if(message.guildId != "831483672065736704") return;
-        if((args[0] == undefined) || (args[1] == undefined)){embed()}
+        if((args[0] == undefined) || (args[1] == undefined)) return embed()
         if((args[0] > 5) || (args[0] < 1)) return embed()
         if((args[1] > 5) || (args[1] < 1)) return embed()
 
