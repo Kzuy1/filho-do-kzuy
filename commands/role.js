@@ -60,6 +60,9 @@ module.exports = {
                     roles.push(role[4])
                     setTimeout(function(){ message.member.roles.add("833103662288601158") }, 500)
                     break
+                default:
+                    return message.reply("Erro")
+                    
             }
         }
         message.member.setNickname(`VD | ${roles[0]} - ${roles[1]} | ${nickname}`)
