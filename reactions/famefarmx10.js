@@ -15,7 +15,7 @@ module.exports = {
 
         if(participantes.includes(dados.d.user_id)) {
             let index = 0
-            for (i = 0; i < 7; i++){
+            for (i = 0; i < 10; i++){
                 let verificar = embed.fields[i].value.search(dados.d.user_id)
                 if (verificar != -1) {
                     index = i
@@ -30,45 +30,63 @@ module.exports = {
 
                     break
                 case 2:
-                    limites[2].healer = limites[2].healer -1
-                    embed.fields[2].name = `Healer (${limites[2].healer}/1)`
+                    limites[2].mainHealer = limites[2].mainHealer -1
+                    embed.fields[2].name = `Main Healer (${limites[2].mainHealer}/1)`
                     embed.fields[2].value = `-`
 
                     break
                 case 3:
-                    if (limites[3].dps == 1) {
-                        limites[3].dps = limites[3].dps -1
-                        embed.fields[3].name = `DPS (${limites[3].dps}/3)`
-                        embed.fields[3].value = `-`
-                    } else {
-                        limites[3].dps = limites[3].dps -1
-                        embed.fields[3].name = `DPS (${limites[3].dps}/3)`
-                        embed.fields[3].value = embed.fields[3].value.replace(`<@${dados.d.user_id}>`,"")
-                        embed.fields[3].value = embed.fields[3].value.replace("><",">\n<")
-                    }
+                    limites[3].partyHealer = limites[3].partyHealer -1
+                    embed.fields[3].name = `Party Healer (${limites[3].partyHealer}/1)`
+                    embed.fields[3].value = `-`
+                    break
+                case 4:
+                    limites[4].badon = limites[4].badon -1
+                    embed.fields[4].name = `Badônico (${limites[4].badon}/1)`
+                    embed.fields[4].value = `-`
+
                     break
                 case 5:
-                    if (limites[5].reserva == 1){
-                        limites[5].reserva = limites[5].reserva -1
-                        embed.fields[5].name = `Reserva (${limites[5].reserva})`
-                        embed.fields[5].value = `-`
-                    } else {
-                        limites[5].reserva = limites[5].reserva -1
-                        embed.fields[5].name = `Reserva (${limites[5].reserva})`
-                        embed.fields[5].value = embed.fields[5].value.replace(`<@${dados.d.user_id}>`,"")
-                        embed.fields[5].value = embed.fields[5].value.replace("><",">\n<")
-                    }
+                    limites[5].suporte = limites[5].suporte -1
+                    embed.fields[5].name = `Suporte (${limites[5].suporte}/1)`
+                    embed.fields[5].value = `-`
+                    
                     break
                 case 6:
-                    if (limites[6].nparticipar == 1){
-                        limites[6].nparticipar = limites[6].nparticipar -1
-                        embed.fields[6].name = `Não vou mais participar (${limites[6].nparticipar})`
+                    if (limites[6].dps == 1) {
+                        limites[6].dps = limites[6].dps -1
+                        embed.fields[6].name = `DPS (${limites[6].dps}/5)`
                         embed.fields[6].value = `-`
                     } else {
-                        limites[6].nparticipar = limites[6].nparticipar -1
-                        embed.fields[6].name = `Não vou mais participar (${limites[6].nparticipar})`
+                        limites[6].dps = limites[6].dps -1
+                        embed.fields[6].name = `DPS (${limites[6].dps}/5)`
                         embed.fields[6].value = embed.fields[6].value.replace(`<@${dados.d.user_id}>`,"")
                         embed.fields[6].value = embed.fields[6].value.replace("><",">\n<")
+                    }
+                    break
+                case 8:
+                    if (limites[8].reserva == 1){
+                        limites[8].reserva = limites[8].reserva -1
+                        embed.fields[8].name = `Reserva (${limites[8].reserva})`
+                        embed.fields[8].value = `-`
+                    } else {
+                        limites[8].reserva = limites[8].reserva -1
+                        embed.fields[8].name = `Reserva (${limites[8].reserva})`
+                        embed.fields[8].value = embed.fields[8].value.replace(`<@${dados.d.user_id}>`,"")
+                        embed.fields[8].value = embed.fields[8].value.replace("><",">\n<")
+                    }
+                    break
+
+                case 9:
+                    if (limites[9].nparticipar == 1){
+                        limites[9].nparticipar = limites[9].nparticipar -1
+                        embed.fields[9].name = `Não vou mais participar (${limites[9].nparticipar})`
+                        embed.fields[9].value = `-`
+                    } else {
+                        limites[9].nparticipar = limites[9].nparticipar -1
+                        embed.fields[9].name = `Não vou mais participar (${limites[9].nparticipar})`
+                        embed.fields[9].value = embed.fields[9].value.replace(`<@${dados.d.user_id}>`,"")
+                        embed.fields[9].value = embed.fields[9].value.replace("><",">\n<")
                     }
                     break
             }
@@ -80,39 +98,57 @@ module.exports = {
             embed.fields[1].value = `<@${dados.d.user_id}>\n`
         }
 
-        if(dados.d.emoji.id === "965329104197001236" && limites[2].healer < 1) {
-            limites[2].healer = limites[2].healer +1
-            embed.fields[2].name = `Healer (${limites[2].healer}/1)`
+        if(dados.d.emoji.id === "965329104197001236" && limites[2].mainHealer < 1) {
+            limites[2].mainHealer = limites[2].mainHealer +1
+            embed.fields[2].name = `Main Healer (${limites[2].mainHealer}/1)`
             embed.fields[2].value = `<@${dados.d.user_id}>\n`
         }
 
-        if(dados.d.emoji.id === "970026432002658395" && limites[3].dps < 3) {
-            limites[3].dps = limites[3].dps +1
-            embed.fields[3].name = `DPS (${limites[3].dps}/3)`
-            if(limites[3].dps == 1){
-                embed.fields[3].value = `<@${dados.d.user_id}>`
+        if(dados.d.emoji.id === "965329345864421413" && limites[3].partyHealer < 1) {
+            limites[3].partyHealer = limites[3].partyHealer +1
+            embed.fields[3].name = `Party Healer (${limites[3].partyHealer}/1)`
+            embed.fields[3].value = `<@${dados.d.user_id}>\n`
+        }
+
+        if(dados.d.emoji.id === "1017209196703395932" && limites[4].badon < 1) {
+            limites[4].badon = limites[4].badon +1
+            embed.fields[4].name = `Badônico (${limites[4].badon}/1)`
+            embed.fields[4].value = `<@${dados.d.user_id}>\n`
+        }
+
+        if(dados.d.emoji.id === "965321528008900649" && limites[5].suporte < 1) {
+            limites[5].suporte = limites[5].suporte +1
+            embed.fields[5].name = `Suporte (${limites[5].suporte}/1)`
+            embed.fields[5].value = `<@${dados.d.user_id}>\n`
+        }
+
+        if(dados.d.emoji.id === "970026432002658395" && limites[6].dps < 5) {
+            limites[6].dps = limites[6].dps +1
+            embed.fields[6].name = `DPS (${limites[6].dps}/5)`
+            if(limites[6].dps == 1){
+                embed.fields[6].value = `<@${dados.d.user_id}>`
             } else{
-                embed.fields[3].value = embed.fields[3].value + `\n<@${dados.d.user_id}>`
+                embed.fields[6].value = embed.fields[6].value + `\n<@${dados.d.user_id}>`
             }
         }
 
         if(dados.d.emoji.id === "969804985321812038"){
-            limites[5].reserva = limites[5].reserva +1
-            embed.fields[5].name = `Reserva (${limites[5].reserva})`
-            if(limites[5].reserva == 1){
-                embed.fields[5].value = `<@${dados.d.user_id}>`
+            limites[8].reserva = limites[8].reserva +1
+            embed.fields[8].name = `Reserva (${limites[8].reserva})`
+            if(limites[8].reserva == 1){
+                embed.fields[8].value = `<@${dados.d.user_id}>`
             } else {
-                embed.fields[5].value = embed.fields[5].value + `\n<@${dados.d.user_id}>`
+                embed.fields[8].value = embed.fields[8].value + `\n<@${dados.d.user_id}>`
             }
         }
 
         if(dados.d.emoji.name === "❌"){
-            limites[6].nparticipar = limites[6].nparticipar +1
-            embed.fields[6].name = `Não vou mais participar (${limites[6].nparticipar})`
-            if(limites[6].nparticipar == 1){
-                embed.fields[6].value = `<@${dados.d.user_id}>`
+            limites[9].nparticipar = limites[9].nparticipar +1
+            embed.fields[9].name = `Não vou mais participar (${limites[9].nparticipar})`
+            if(limites[9].nparticipar == 1){
+                embed.fields[9].value = `<@${dados.d.user_id}>`
             } else {
-                embed.fields[6].value = embed.fields[6].value + `\n<@${dados.d.user_id}>`
+                embed.fields[9].value = embed.fields[9].value + `\n<@${dados.d.user_id}>`
             }
         }
 

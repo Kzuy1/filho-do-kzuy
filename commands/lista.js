@@ -60,7 +60,7 @@ module.exports = {
                     { name: 'Tank (0/1)', value: '-', inline: true },
                     { name: 'Main Healer (0/1)', value: '-', inline: true },
                     { name: 'Party Healer (0/1)', value: '-', inline: true },
-                    { name: 'Badon (0/1)', value: '-', inline: true },
+                    { name: 'Badônico (0/1)', value: '-', inline: true },
                     { name: 'Suporte (0/1)', value: '-', inline: true },
                     { name: 'DPS (0/5)', value: '-', inline: true },
                     { name: '\u200B', value: '\u200B' },
