@@ -42,7 +42,7 @@ module.exports = {
                 horario: horario,
                 eventoId: msgID,
                 participantes: [],
-                limites: [{tank: 0},{healer: 0},{dps: 0},{reserva:0},{nparticipar: 0}],
+                limites: [{"":""},{tank: 0},{healer: 0},{dps: 0},{"":""},{reserva: 0},{nparticipar: 0}],
             })
         }
 

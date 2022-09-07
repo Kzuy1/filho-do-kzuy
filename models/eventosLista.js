@@ -18,4 +18,4 @@ const eventoListaModel = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("eventoListaModel", eventoListaModel);
+module.exports = mongoose.model("eventoLista", eventoListaModel);
