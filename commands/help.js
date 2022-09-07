@@ -11,6 +11,7 @@ module.exports = {
         .addFields(
             { name: 'k!cadastrar', value: 'k!cadastrar <@Usuario> <Nickname>', inline: false },
             { name: 'k!fflista', value: 'k!fflista DD/MM/AAAA HH:MM', inline: false },
+            { name: 'k!role', value: 'k!role <role1> <role2>', inline: false },
             { name: 'k!warn', value: 'k!warn <@Usuario>', inline: false },
             { name: 'k!listawarn', value: 'k!listawarn <@Usuario>', inline: false },
             { name: 'k!perm', value: '-', inline: false },
