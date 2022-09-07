@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const eventosLista = require("../models/eventosLista.js")
 
 module.exports = {
-    name: "famefarm",
+    name: "famefarmx5",
 
     run: async(client,dados,consulta) => {
         if (dados.t == "MESSAGE_REACTION_REMOVE") return
