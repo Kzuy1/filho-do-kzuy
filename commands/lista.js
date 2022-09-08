@@ -7,7 +7,7 @@ module.exports = {
 
     run: async(client, message, args) => {
         if(message.guildId != "831483672065736704") return;
-        if(!(message.member.permissions.has("MANAGE_ROLES") || message.member.roles.cache.has("895055422732529765") || message.member.roles.cache.has("1015724564111691806"))) {
+        if(!(message.member.permissions.has("MANAGE_ROLES") || message.member.roles.cache.has("832369903951675473"))) {
             message.reply("Você não tem permissão!")
         } else {
             let template = args[0]
@@ -31,8 +31,8 @@ module.exports = {
                     { name: 'Reserva (0)', value: '-', inline: true },
                     { name: 'Não vou mais participar (0)', value: '-', inline: true },
                 )
-    
-                let msg = await message.channel.send({ embeds: [exampleEmbed] })
+                
+                let msg = await client.channels.cache.get("1017555817827934248").send({ embeds: [exampleEmbed] })
                 let msgID = msg.id
                 msg.react('<:Incubus:965328874546266162>');
                 msg.react('<:Cajado_Divino:965329104197001236>');
@@ -68,7 +68,7 @@ module.exports = {
                     { name: 'Não vou mais participar (0)', value: '-', inline: true },
                 )
     
-                let msg = await message.channel.send({ embeds: [exampleEmbed] })
+                let msg = await client.channels.cache.get("1017555817827934248").send({ embeds: [exampleEmbed] })
                 let msgID = msg.id
                 msg.react('<:Incubus:965328874546266162>');
                 msg.react('<:Cajado_Divino:965329104197001236>');
