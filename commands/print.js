@@ -11,19 +11,21 @@ module.exports = {
 
       const canal = client.channels.cache.get("831483673215369218")
       const members= canal.members.map(x => x.id)
-      let nickname = ""
+
       const date = new Date()
       let year = date.getFullYear()
       let month = date.getMonth() + 1
       let day = date.getDate()
 
       let nameFile = `CTA_${year}-${month}-${day}.txt`
-      
+      let nickname = `${nameFile}`
 
       for (i = 0; i < members.length; i++){
         let request = await report.find({discordId: members[i]}).exec()
-        if (request != undefined){
-          nickname = nickname + request[0].nickname
+        if (!(request == false)){
+          nickname = `${nickname} \n'${request[0].nickname}'`
+        } else{
+          nickname = `${nickname} \n'${members[i]}'`
         }
       }
 
