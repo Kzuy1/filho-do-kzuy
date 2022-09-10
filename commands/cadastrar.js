@@ -26,7 +26,7 @@ module.exports = {
                 setTimeout(function(){ user.roles.add("979947281325363250") }, 500)
                 setTimeout(function(){ user.roles.add("914696516990550047") }, 500)
                 setTimeout(function(){ user.roles.add("849727477265334312") }, 500)
-                message.reply(`Usuário <@${user.id}> cadastrado.`)
+                message.reply(`Usuário <@${user.id}> cadastrado.\nSeja Bem-Vindo <@${user.id}> a **VOODOO**\n\nPara pegar roles de Content utilize <#970015620529811496>\nComo pedir regear utilize <#831483673470566405>\nE digite **k!role** em <#831483673001590801> para pegar role de Zerg\nQualquer dúvida adicional utilize o <#832387372293292083>\n`)
 
             }
 

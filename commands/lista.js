@@ -88,12 +88,59 @@ module.exports = {
                 })
             }
 
+            async function worldBoss() {
+                const exampleEmbed = new Discord.MessageEmbed()
+                .setColor('RANDOM')
+                .setTitle(`World Boss`)
+                .setDescription(`:calendar_spiral: ${data}\n:clock2: ${horario}\nOrganizador: <@${message.author.id}>`)
+                .addFields(
+                    { name: '\u200B', value: '\u200B'},
+                    { name: 'Tank (0/1)', value: '-', inline: true },
+                    { name: 'Main Healer (0/1)', value: '-', inline: true },
+                    { name: 'Party Healer (0/1)', value: '-', inline: true },
+                    { name: 'Prisma (0/1)', value: '-', inline: true },
+                    { name: 'Shadowcaller (0/1)', value: '-', inline: true },
+                    { name: 'Fulgurante (0/1)', value: '-', inline: true },
+                    { name: 'Enigmático (0/1)', value: '-', inline: true },
+                    { name: 'DPS (0/2)', value: '-', inline: true },
+                    { name: 'Scout (0/1)', value: '-', inline: true },
+                    { name: '\u200B', value: '\u200B' },
+                    { name: 'Reserva (0)', value: '-', inline: true },
+                    { name: 'Não vou mais participar (0)', value: '-', inline: true },
+                )
+    
+                let msg = await client.channels.cache.get("1017956217110413332").send({ embeds: [exampleEmbed] })
+                let msgID = msg.id
+                msg.react('<:Incubus:965328874546266162>');
+                msg.react('<:Cajado_Divino:965329104197001236>');
+                msg.react('<:Cajado_Corrompido:965329345864421413>');
+                msg.react('<:Prisma_Geleterno:965331947356291082>');
+                msg.react('<:Chama_Sombras:965331731706171402>');
+                msg.react('<:Cajado_Fugurante:965331964867530892>');
+                msg.react('<:Cajado_Enigmatico:965329447337218168>');
+                msg.react('<:Ranged:970026432002658395>');
+                msg.react('<:Scout:966801241353093221>');
+                msg.react('<:Reserva:969804985321812038>');
+                msg.react('❌');
+                const eventosRegistro = eventosLista.create({
+                    evento: "worldboss",
+                    data: data,
+                    horario: horario,
+                    eventoId: msgID,
+                    participantes: [],
+                    limites: [{"":""},{tank: 0},{mainHealer: 0},{partyHealer: 0},{prisma: 0},{shadowcaller: 0},{fulgurante: 0},{enigmatico: 0},{dps: 0},{scout: 0},{"":""},{reserva: 0},{nparticipar: 0}],
+                })
+            }
+
             switch (args[0]){
                 case "1":
                     fameFarmx5()
                     break
                 case "2":
                     fameFarmx10()
+                    break
+                case "3":
+                    worldBoss()
                     break
             }   
 
