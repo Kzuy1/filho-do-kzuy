@@ -22,7 +22,9 @@ module.exports = {
 
       for (i = 0; i < members.length; i++){
         let request = await report.find({discordId: members[i]}).exec()
-        nickname = nickname + request[0].nickname
+        if (request != undefined){
+          nickname = nickname + request[0].nickname
+        }
       }
 
       fs.writeFile(nameFile, nickname, (err) => {
