@@ -30,7 +30,6 @@ module.exports = {
 
         if(dados == false) return message.reply(`Usuário não está cadastrado. Mande messagem para <@307683313982767104> para informar o erro.`)
         let nickname = dados[0].nickname
-        let roles = []
         
         setTimeout(function(){if(message.member.roles.cache.has("833103531057610802")) {message.member.roles.remove("833103531057610802")}}, 500)
         setTimeout(function(){if(message.member.roles.cache.has("833103571926122526")) {message.member.roles.remove("833103571926122526")}}, 500)
