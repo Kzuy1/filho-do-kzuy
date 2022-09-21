@@ -30,6 +30,7 @@ module.exports = {
 
         if(dados == false) return message.reply(`Usuário não está cadastrado. Mande messagem para <@307683313982767104> para informar o erro.`)
         let nickname = dados[0].nickname
+        let roles = []
         
         setTimeout(function(){if(message.member.roles.cache.has("833103531057610802")) {message.member.roles.remove("833103531057610802")}}, 500)
         setTimeout(function(){if(message.member.roles.cache.has("833103571926122526")) {message.member.roles.remove("833103571926122526")}}, 500)
@@ -65,6 +66,10 @@ module.exports = {
             }
         }
         message.member.setNickname(`VD | ${roles[0]} - ${roles[1]} | ${nickname}`)
+        const  update = await report.findOneAndUpdate(
+            {discordId: targetUser},
+            {role: [{role1: roles[0]}, {role2: roles[1]}]}
+        )
         message.reply("Roles configuradas!!")
     }
 }
