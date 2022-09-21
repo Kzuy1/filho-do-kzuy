@@ -35,6 +35,7 @@ module.exports = {
                     nickname: nickname,
                     discordId: user.id,
                     atividade: 1,
+                    role: "",
                     report: ""
                 })
                 adicionarRole()

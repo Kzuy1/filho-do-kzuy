@@ -10,6 +10,10 @@ const reportModel = new mongoose.Schema({
         type: mongoose.SchemaTypes.Number,
         required: true,
     },
+    role: {
+        type: mongoose.SchemaTypes.Array,
+        required: true,
+    },
     report: {
         type: mongoose.SchemaTypes.Array,
         required: true,
