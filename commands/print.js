@@ -36,10 +36,10 @@ module.exports = {
         if (err) throw err;
       });
 
-      setTimeout(function(){ msg.edit({content: `Lista do Major CTA ${day}/${month}/${year} :white_check_mark:`, files: [`./${nameFile}`]})}, 3000)
+      setTimeout(function(){ await msg.edit({content: `Lista do Major CTA ${day}/${month}/${year} :white_check_mark:`, files: [`./${nameFile}`]})}, 3000)
       setTimeout(function(){ fs.unlink(`./${nameFile}`,(err) => {
         if (err) throw err;
-      }); }, 5000)
+      }); }, 10000)
       
 
       
