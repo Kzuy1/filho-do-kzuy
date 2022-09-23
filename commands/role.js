@@ -78,5 +78,6 @@ module.exports = {
             {role: [{role1: roles1[0]}, {role2: roles1[1]}]}
         )
         message.reply("Roles configuradas!!")
+        //
     }
 }
