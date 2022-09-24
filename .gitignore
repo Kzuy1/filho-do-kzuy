@@ -4,3 +4,5 @@ package-lock.json/
 package-lock.json
 discloud.config
 .gitignore
+replit.nix
+replit.txt
