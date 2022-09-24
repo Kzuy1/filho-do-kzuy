@@ -26,7 +26,9 @@ module.exports = {
       for (i = 0; i < members.length; i++){
         let request = await report.find({discordId: members[i]}).exec()
         if (!(request == false)){
-          nickname = `${nickname} \n'${request[0].nickname}','${request[0].role[0].role1}','${request[0].role[0].role2}',`
+          let role1 = request[0].role[0]
+          let role2 = request[0].role[1]
+          nickname = `${nickname} \n'${request[0].nickname}','${role1}','${role2}'`
         } else{
           nickname = `${nickname} \n'${members[i]}',`
         }

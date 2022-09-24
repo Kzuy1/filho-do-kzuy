@@ -26,9 +26,9 @@ module.exports = {
       for (i = 0; i < members.length; i++){
         let request = await report.find({discordId: members[i]}).exec()
         if (!(request == false)){
-          nickname = `${nickname} \n'${request[0].nickname}',`
+          nickname = `${nickname} \n'${request[0].nickname}'`
         } else{
-          nickname = `${nickname} \n'${members[i]}',`
+          nickname = `${nickname} \n'${members[i]}'`
         }
       }
 
@@ -39,7 +39,7 @@ module.exports = {
       setTimeout(function(){ msg.edit({content: `Lista do Major CTA ${day}/${month}/${year} :white_check_mark:`, files: [`./${nameFile}`]})}, 3000)
       setTimeout(function(){ fs.unlink(`./${nameFile}`,(err) => {
         if (err) throw err;
-      }); }, 10000)
+      }); }, 5000)
       
 
       

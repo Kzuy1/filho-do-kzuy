@@ -75,7 +75,7 @@ module.exports = {
         message.member.setNickname(`VD | ${roles[0]} - ${roles[1]} | ${nickname}`)
         const  update = await report.findOneAndUpdate(
             {discordId: targetUser},
-            {role: [{role1: roles1[0]}, {role2: roles1[1]}]}
+            {role: [roles1[0], roles1[1]]}
         )
         message.reply("Roles configuradas!!")
         //

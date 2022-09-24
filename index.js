@@ -97,5 +97,5 @@ process.on('uncaughtException', (error, origin) => {
 process.on('uncaughtExceptionMonitor', (error, origin) => {
   client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + error, origin)
 });
-//teste
+
 client.login(config.token)
