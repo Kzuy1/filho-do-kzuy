@@ -11,6 +11,7 @@ module.exports = {
         .addFields(
             { name: '1 - Fame Farm X5', value: '-', inline: false },
             { name: '2 - Fame Farm X10', value: '-', inline: false },
+            { name: '3 - World Boss', value: '-', inline: false },
         )
 
       let msg = await message.channel.send({ embeds: [exampleEmbed] })
