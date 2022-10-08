@@ -54,13 +54,6 @@ client.on("messageCreate", async message => {
   }
 });
 
-async function connectToDatabase() {
-  const connection = await connect(config.mongo_url, {})
-  console.log('Database conectada com sucesso!')
-
-}
-connectToDatabase()
-
 client.on("guildMemberRemove", async guildRemove => {
   if (guildRemove.guild.id != "831483672065736704") return;
   const roleIDs = ['832369903951675473', '925546014193090600'];
@@ -97,5 +90,12 @@ process.on('uncaughtException', (error, origin) => {
 process.on('uncaughtExceptionMonitor', (error, origin) => {
   client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + error, origin)
 });
+
+async function connectToDatabase() {
+  const connection = await connect(config.mongo_url, {})
+  console.log('Database conectada com sucesso!')
+
+}
+connectToDatabase()
 
 client.login(config.token)

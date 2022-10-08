@@ -9,9 +9,9 @@ module.exports = {
         .setColor('RANDOM')
         .setTitle('Templates de Listas')
         .addFields(
-            { name: '1 - Fame Farm X5', value: '-', inline: false },
-            { name: '2 - Fame Farm X10', value: '-', inline: false },
-            { name: '3 - World Boss', value: '-', inline: false },
+            { name: '1 - Fame Farm X5', value: 'https://prnt.sc/i7Eh9UUqDIwA', inline: false },
+            { name: '2 - Fame Farm X10', value: 'https://prnt.sc/cMoz9UnL_N_t', inline: false },
+            { name: '3 - World Boss', value: 'https://prnt.sc/Awg1ibzqdbj9', inline: false },
         )
 
       let msg = await message.channel.send({ embeds: [exampleEmbed] })

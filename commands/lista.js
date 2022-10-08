@@ -47,6 +47,7 @@ module.exports = {
                     participantes: [],
                     limites: [{"":""},{tank: 0},{healer: 0},{dps: 0},{"":""},{reserva: 0},{nparticipar: 0}],
                 })
+                message.reply(`Evento criado <#1017555817827934248>`)
             }
 
             
@@ -86,6 +87,7 @@ module.exports = {
                     participantes: [],
                     limites: [{"":""},{tank: 0},{mainHealer: 0},{partyHealer: 0},{badon: 0},{suporte: 0},{dps: 0},{"":""},{reserva: 0},{nparticipar: 0}],
                 })
+                message.reply(`Evento criado <#1017555817827934248>`)
             }
 
             async function worldBoss() {
@@ -130,6 +132,7 @@ module.exports = {
                     participantes: [],
                     limites: [{"":""},{tank: 0},{mainHealer: 0},{partyHealer: 0},{prisma: 0},{shadowcaller: 0},{fulgurante: 0},{enigmatico: 0},{dps: 0},{scout: 0},{"":""},{reserva: 0},{nparticipar: 0}],
                 })
+                message.reply(`Evento criado <#1017956217110413332>`)
             }
 
             switch (args[0]){
