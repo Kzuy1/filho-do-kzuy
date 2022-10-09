@@ -32,7 +32,7 @@ module.exports = {
                     { name: 'Não vou mais participar (0)', value: '-', inline: true },
                 )
                 
-                let msg = await client.channels.cache.get("1017555817827934248").send({ embeds: [exampleEmbed] })
+                let msg = await client.channels.cache.get("1017555817827934248").send({content: '<@&840100751216607242>', embeds: [exampleEmbed] })
                 let msgID = msg.id
                 msg.react('<:Incubus:965328874546266162>');
                 msg.react('<:Cajado_Divino:965329104197001236>');
@@ -69,7 +69,7 @@ module.exports = {
                     { name: 'Não vou mais participar (0)', value: '-', inline: true },
                 )
     
-                let msg = await client.channels.cache.get("1017555817827934248").send({ embeds: [exampleEmbed] })
+                let msg = await client.channels.cache.get("1017555817827934248").send({content: '<@&840100751216607242>', embeds: [exampleEmbed] })
                 let msgID = msg.id
                 msg.react('<:Incubus:965328874546266162>');
                 msg.react('<:Cajado_Divino:965329104197001236>');
@@ -111,7 +111,7 @@ module.exports = {
                     { name: 'Não vou mais participar (0)', value: '-', inline: true },
                 )
     
-                let msg = await client.channels.cache.get("1017956217110413332").send({ embeds: [exampleEmbed] })
+                let msg = await client.channels.cache.get("1017956217110413332").send({content: '<@&840102257970249768>', embeds: [exampleEmbed] })
                 let msgID = msg.id
                 msg.react('<:Incubus:965328874546266162>');
                 msg.react('<:Cajado_Divino:965329104197001236>');

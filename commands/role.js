@@ -10,7 +10,7 @@ module.exports = {
             const exampleEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .setTitle('**Escolha uma classe principal e secundário**')
-            .setDescription(`**1 - Tank\n2 - Healer\n3 - Suporte\n4 - Ranged\n5 - Melee**`)
+            .setDescription(`**1 - Tank\n2 - Healer\n3 - Suporte\n4 - Ranged\n5 - Melee**\n\nk!role <role1> <role2>`)
             .addFields(
                 { name: 'Exemplo:', value: 'Se sua role PRINCIPAL for Tank e SECUNDÁRIA for Healer\n**k!role 1 2**', inline: false },
                 { name: 'Exemplo:', value: 'Se você tiver só uma role principal. Como só Tank\n**k!role 1 1**', inline: false },
@@ -78,6 +78,5 @@ module.exports = {
             {role: [roles1[0], roles1[1]]}
         )
         message.reply("Roles configuradas!!")
-        //
     }
 }

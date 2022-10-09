@@ -14,6 +14,16 @@ client.on("ready", () => {
   console.log("Estou Online!")
 })
 
+client.on("raw", async dados => {
+  if (dados.t !== "CHANNEL_CREATE" && dados.t !== "MESSAGE_CREATE") return
+
+  try {
+    const commandReactions = require(`./reactions/recruitment.js`)
+    commandReactions.run(client, dados)
+  } catch (err) {
+    console.log(err)
+  }
+})
 
 //REAÇÕES POR EMOJI
 client.on("raw", async dados => {
