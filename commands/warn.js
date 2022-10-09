@@ -7,7 +7,7 @@ module.exports = {
 
     run: async(client, message, args) => {
         if(message.guildId != "831483672065736704") return;
-        if(!message.member.permissions.has("MANAGE_ROLES")) {
+        if(!(message.member.permissions.has("MANAGE_ROLES") || message.member.roles.cache.has("1028720772539228230"))) {
             message.reply("Você não tem permissão!")
         } else {
             try {args[0] = args[0].replace(/\D/g, '')} catch (error) { }
