@@ -33,10 +33,5 @@ module.exports = {
   
             }
         }
-
-
-
-
-        
     }
 }
