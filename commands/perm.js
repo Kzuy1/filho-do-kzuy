@@ -26,6 +26,8 @@ module.exports = {
                 message.member.setNickname(nickname)
                 message.reply(`🇧🇷: Perm configurada\n🇺🇸: Perm configured\n🇪🇸: Perm configurada`)
                 break
+            } else {
+                message.reply(`🇧🇷: Guild não encontrada!\n🇺🇸: Guild not found!\n🇪🇸: Guild no encontrada!`)
             }
         }        
     }
