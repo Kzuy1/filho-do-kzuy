@@ -6,6 +6,11 @@ module.exports = {
   name: "remove",
 
   run: async (client, message, args) => {
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     if (message.guildId != "831483672065736704") return;
     if (!message.member.permissions.has("MANAGE_ROLES")) {
       message.reply("Você não tem permissão!")
@@ -29,17 +34,19 @@ module.exports = {
         { discordId: user.id },
         { atividade: 0 }
       )
-      let c = 0
+
       const supportGuild = client.guilds.cache.get('833725119720325190')
       const userBomb = supportGuild.members.cache.get(user.id)
-      while (c != roleC.length) {
-        if (!roles.includes(roleC[c])) {
-          user.roles.remove(roleC[c])
+      try { userBomb.kick("Expulso da Guilda") } catch (error) {}
+
+      for(i = 0; i < roleC.length; i++){
+        if (!roles.includes(roleC[i])) {
+          user.roles.remove(roleC[i])
+          console.log(i);
+          await sleep(500);
         }
-        c++
-        await sleep(500);
       }
-      try { userBomb.kick("Expulso da Guilda") } catch (error) { }
+
       user.setNickname("")
       message.reply(`Cargos removidos de ${user}.`)
     }
