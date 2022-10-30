@@ -6,9 +6,6 @@ module.exports = {
   name: "remove",
 
   run: async (client, message, args) => {
-    function sleep(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    }
     if (message.guildId != "831483672065736704") return;
     if (!message.member.permissions.has("MANAGE_ROLES")) {
       message.reply("Você não tem permissão!")

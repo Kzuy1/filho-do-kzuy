@@ -18,6 +18,6 @@ module.exports = {
             { name: 'k!remove', value: 'k!remove <@Usuario>', inline: false },
         )
 
-      let msg = await message.channel.send({ embeds: [exampleEmbed] })
+      let msg = await message.channel.send({ embeds: [exampleEmbed] }).catch((error) => {message.reply("Eu não tenho permissão!")})
     }
 }
