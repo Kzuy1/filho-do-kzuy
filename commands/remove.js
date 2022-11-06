@@ -37,7 +37,10 @@ module.exports = {
 
       const supportGuild = client.guilds.cache.get('833725119720325190')
       const userBomb = supportGuild.members.cache.get(user.id)
+      const supportGuild2 = client.guilds.cache.get('941706531630633001')
+      const userBomb2 = supportGuild2.members.cache.get(user.id)
       try { userBomb.kick("Expulso da Guilda") } catch (error) {}
+      try { userBomb2.kick("Expulso da Guilda") } catch (error) {}
 
       for(i = 0; i < roleC.length; i++){
         if (!roles.includes(roleC[i])) {
