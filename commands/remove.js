@@ -45,7 +45,6 @@ module.exports = {
       for(i = 0; i < roleC.length; i++){
         if (!roles.includes(roleC[i])) {
           user.roles.remove(roleC[i])
-          console.log(i);
           await sleep(500);
         }
       }
