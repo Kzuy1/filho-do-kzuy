@@ -4,9 +4,8 @@ module.exports = {
     name: "help",
 
     run: async(client, message, args) => {
-      if(message.guildId != "831483672065736704") return;
-      const exampleEmbed = new Discord.MessageEmbed()
-        .setColor('RANDOM')
+      const exampleEmbed = new Discord.EmbedBuilder()
+        .setColor('Random')
         .setTitle('Help Menu')
         .addFields(
             { name: 'k!cadastrar', value: 'k!cadastrar <@Usuario> <Nickname>', inline: false },

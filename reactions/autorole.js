@@ -21,6 +21,7 @@ module.exports = {
                 membro.roles.remove(cargo1)
                  
             }
+            
         }
 
     }

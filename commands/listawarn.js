@@ -30,8 +30,8 @@ module.exports = {
                     }
                 }
 
-                const exampleEmbed = new Discord.MessageEmbed()
-                .setColor('RANDOM')
+                const exampleEmbed = new Discord.EmbedBuilder()
+                .setColor('Random')
                 .setDescription(`**Usuário <@${user.id}> tem um total de **${arrayLength} advertências!**\nEssa são as últimas advertências:**\n\n ${text}`)
         
               let msg = await message.channel.send({ embeds: [exampleEmbed] })

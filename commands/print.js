@@ -10,7 +10,7 @@ module.exports = {
       if(!(message.member.roles.cache.has("831483672099684352") || message.author.id == "307683313982767104")) return message.reply("Somente o Kzuy, Chakzzz ou Ana pode utilizar esse comando!");
 
       const canal = client.channels.cache.get("831483673215369218")
-      const members= canal.members.map(x => x.id)
+      const members= canal.members.map(x => console.log(x.id))
 
       const date = new Date()
       let year = date.getFullYear()
