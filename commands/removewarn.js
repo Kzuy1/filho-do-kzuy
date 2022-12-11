@@ -7,14 +7,14 @@ module.exports = {
 
     run: async(client, message, args) => {
         if(message.author.id != "307683313982767104") return message.reply("Somente o Kzuy pode utilizar esse comando!");
-        if(!message.member.permissions.has("MANAGE_ROLES")) {
+        if(!message.member.permissions.has(Discord.PermissionFlagsBits.ManageRoles)) {
             message.reply("Você não tem permissão!")
         } else {
-            try {args[0] = args[0].replace(/\D/g, '')} catch (error) { }
+            try {args[0] = args[0].replace(/\D/g, '')} catch (error) {}
             let user = await message.guild.members.cache.get(args[0])
             if(!user) return message.reply("Membro não especificado!")
             let motivo = args.join(" ").slice(args[0].length);
-            if(!motivo) return message.reply("Motivo do report não especificado!") 
+            if(!motivo) return message.reply("Posição do Warn não especificado!") 
             let dados = await report?.find({discordId: user.id}).exec()
             if(dados == false) {
                 message.reply(`Usuário <@${user.id}> não está cadastrado.`)
@@ -30,9 +30,5 @@ module.exports = {
             }
         }
 
-
-
-
-        
     }
 }
