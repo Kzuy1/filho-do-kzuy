@@ -5,8 +5,8 @@ module.exports = {
 
     run: async(client, message, args) => {
       if(message.guildId != "831483672065736704") return;
-      const exampleEmbed = new Discord.MessageEmbed()
-        .setColor('RANDOM')
+      const exampleEmbed = new Discord.EmbedBuilder()
+        .setColor('Random')
         .setTitle('Templates de Listas')
         .addFields(
             { name: '1 - Fame Farm X5', value: 'https://prnt.sc/i7Eh9UUqDIwA', inline: false },
