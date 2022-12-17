@@ -5,9 +5,15 @@ const report = require("../models/reportModel.js")
 module.exports = {
   name: "print",
 
+<<<<<<< HEAD
   run: async(client, message, args) => {
     if(message.guildId != "831483672065736704") return
     if(!(message.member.roles.cache.has("831483672099684352") || message.author.id == "307683313982767104")) return message.reply("Somente o Kzuy, Chakzzz ou Ana pode utilizar esse comando!");
+=======
+    run: async(client, message, args) => {
+      if(message.guildId != "831483672065736704") return
+      if(!(message.member.roles.cache.has("443216944783425546") || message.author.id == "443216944783425546")) return message.reply("Somente o Kzuy, Chakzzz ou Ana pode utilizar esse comando!");
+>>>>>>> parent of 663b22c (3.5.1)
 
     const canal = client.channels.cache.get("831483673215369218")
     const members= canal.members.map(x => x.id)

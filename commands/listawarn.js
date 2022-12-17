@@ -17,16 +17,16 @@ module.exports = {
                 message.reply(`Usuário <@${user.id}> não está cadastrado.`)
             } else {
                 let reportArray = dados[0].report
-                let arrayLength = reportArray.length-1.
-                let text = ""
-
+                let arrayLength = reportArray.length-1
                 if (arrayLength > 10) {
+                    message.channel.send(`Usuário <@${user.id}> tem um total de **${arrayLength} advertências!**\nEssa são as últimas 10 advertências:`)
                     for(i = arrayLength-9; i <= arrayLength; i++){
-                        text = text + `${i}° - Data: ${reportArray[i].Data} • Motivo: ${reportArray[i].Motivo}\n`
+                        message.channel.send(`Data: ${reportArray[i].Data} • Motivo: ${reportArray[i].Motivo}`)
                     }
                 } else{
+                    message.channel.send(`Usuário <@${user.id}> tem um total de **${arrayLength} advertencias!**`)
                     for(i = 1; i <= arrayLength; i++){
-                        text = text + `${i}° - Data: ${reportArray[i].Data} • Motivo: ${reportArray[i].Motivo}\n`
+                        message.channel.send(`Data: ${reportArray[i].Data} • Motivo: ${reportArray[i].Motivo}`)
                     }
                 }
 
