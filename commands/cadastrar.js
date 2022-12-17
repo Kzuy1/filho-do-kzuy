@@ -8,7 +8,7 @@ module.exports = {
     run: async(client, message, args) => {
 
         if(message.guildId != "831483672065736704") return;
-        if(!message.member.permissions.has(Discord.PermissionFlagsBits.ManageRoles)) {
+        if(!message.member.permissions.has("MANAGE_ROLES")) {
             message.reply("Você não tem permissão!")
         } else {
             let user = message.mentions.members.first()  || message.guild.members.cache.get(args[0])

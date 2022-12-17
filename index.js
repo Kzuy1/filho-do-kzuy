@@ -1,6 +1,6 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, Intents } = require('discord.js');
 const { connect, default: mongoose } = require('mongoose');
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent] })
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS, Intents.FLAGS.GUILD_INTEGRATIONS, Intents.FLAGS.GUILD_WEBHOOKS, Intents.FLAGS.GUILD_INVITES, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_MESSAGE_TYPING, Intents.FLAGS.DIRECT_MESSAGES, Intents.FLAGS.DIRECT_MESSAGE_REACTIONS, Intents.FLAGS.DIRECT_MESSAGE_TYPING, Intents.FLAGS.GUILD_MEMBERS] })
 const config = require("./config.json")
 const fs = require('fs')
 const eventosLista = require("./models/eventosLista.js")
@@ -74,16 +74,16 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
 })
 
 process.on('multipleResolves', (type, reason, promise) => {
-  console.log(`🚫 Erro Detectado\n\n` + type, promise, reason)
+  client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado\n\n` + type, promise, reason)
 });
 process.on('unhandRejection', (reason, promise) => {
-  console.log(`🚫 Erro Detectado:\n\n` + reason, promise)
+  client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + reason, promise)
 });
 process.on('uncaughtException', (error, origin) => {
-  console.log(`🚫 Erro Detectado:\n\n` + error, origin)
+  client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + error, origin)
 });
 process.on('uncaughtExceptionMonitor', (error, origin) => {
-  console.log(`🚫 Erro Detectado:\n\n` + error, origin)
+  client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + error, origin)
 });
 
 async function connectToDatabase() {

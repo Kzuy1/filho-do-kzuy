@@ -7,7 +7,7 @@ module.exports = {
 
     run: async(client, message, args) => {
         if(message.guildId != "831483672065736704") return;
-        if(!(message.member.permissions.has(Discord.PermissionFlagsBits.ManageRoles) || message.member.roles.cache.has("832369903951675473"))) {
+        if(!(message.member.permissions.has("MANAGE_ROLES") || message.member.roles.cache.has("832369903951675473"))) {
             message.reply("Você não tem permissão!")
         } else {
             let template = args[0]
@@ -18,8 +18,8 @@ module.exports = {
             if(!horario) return message.reply("Comando inválido digite k!lista <NuméroTemplate> DD/MM/AAAA HH:MM\nk!template para ver os templates")
 
             async function fameFarmx5() {
-                const exampleEmbed = new Discord.EmbedBuilder()
-                .setColor('Random')
+                const exampleEmbed = new Discord.MessageEmbed()
+                .setColor('RANDOM')
                 .setTitle(`Fame Farm X5`)
                 .setDescription(`:calendar_spiral: ${data}\n:clock2: ${horario}\nOrganizador: <@${message.author.id}>`)
                 .addFields(
@@ -52,8 +52,8 @@ module.exports = {
 
             
             async function fameFarmx10() {
-                const exampleEmbed = new Discord.EmbedBuilder()
-                .setColor('Random')
+                const exampleEmbed = new Discord.MessageEmbed()
+                .setColor('RANDOM')
                 .setTitle(`Fame Farm X10`)
                 .setDescription(`:calendar_spiral: ${data}\n:clock2: ${horario}\nOrganizador: <@${message.author.id}>`)
                 .addFields(
@@ -91,8 +91,8 @@ module.exports = {
             }
 
             async function worldBoss() {
-                const exampleEmbed = new Discord.EmbedBuilder()
-                .setColor('Random')
+                const exampleEmbed = new Discord.MessageEmbed()
+                .setColor('RANDOM')
                 .setTitle(`World Boss`)
                 .setDescription(`:calendar_spiral: ${data}\n:clock2: ${horario}\nOrganizador: <@${message.author.id}>`)
                 .addFields(
