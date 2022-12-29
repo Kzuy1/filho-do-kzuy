@@ -1,9 +1,8 @@
-const { Client, Intents } = require('discord.js');
+const { Client, GatewayIntentBits } = require('discord.js');
 const { connect, default: mongoose } = require('mongoose');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS, Intents.FLAGS.GUILD_INTEGRATIONS, Intents.FLAGS.GUILD_WEBHOOKS, Intents.FLAGS.GUILD_INVITES, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_MESSAGE_TYPING, Intents.FLAGS.DIRECT_MESSAGES, Intents.FLAGS.DIRECT_MESSAGE_REACTIONS, Intents.FLAGS.DIRECT_MESSAGE_TYPING, Intents.FLAGS.GUILD_MEMBERS] })
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent] })
 const config = require("./config.json")
 const fs = require('fs')
-const eventosLista = require("./models/eventosLista.js")
 const report = require("./models/reportModel.js")
 
 client.on("ready", () => {
@@ -20,18 +19,7 @@ client.on("raw", async dados => {
     } catch (err) {
       console.log(err)
     }
-
   }
-  let consulta = await eventosLista?.find({ eventoId: dados.d.message_id }).exec()
-  if (consulta != false) {
-    try {
-      const commandReactions = require(`./reactions/${consulta[0].evento}.js`)
-      commandReactions.run(client, dados, consulta)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
 })
 
 client.on("messageCreate", async message => {
@@ -73,18 +61,18 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
   }
 })
 
-process.on('multipleResolves', (type, reason, promise) => {
-  client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado\n\n` + type, promise, reason)
-});
-process.on('unhandRejection', (reason, promise) => {
-  client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + reason, promise)
-});
-process.on('uncaughtException', (error, origin) => {
-  client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + error, origin)
-});
-process.on('uncaughtExceptionMonitor', (error, origin) => {
-  client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + error, origin)
-});
+// process.on('multipleResolves', (type, reason, promise) => {
+//   client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado\n\n` + type, promise, reason)
+// });
+// process.on('unhandRejection', (reason, promise) => {
+//   client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + reason, promise)
+// });
+// process.on('uncaughtException', (error, origin) => {
+//   client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + error, origin)
+// });
+// process.on('uncaughtExceptionMonitor', (error, origin) => {
+//   client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + error, origin)
+// });
 
 async function connectToDatabase() {
   const connection = await connect(config.mongo_url, {})

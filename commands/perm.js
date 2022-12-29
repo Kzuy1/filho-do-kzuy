@@ -31,8 +31,10 @@ module.exports = {
         
         let guildInfos = dados[0].guildInfo
         for(let i = 0; i < guildInfos.length; i++){
-            const supportGuild = client.guilds.cache.get(guildInfos[i].guildId)
-            const member = supportGuild.members.cache.get(message.author.id)
+            let supportGuild
+            let member
+            try {supportGuild = await client.guilds.cache.get(guildInfos[i].guildId)} catch (err) {}
+            try {member = await supportGuild.members.fetch(message.author.id)} catch (err) {}
             let hasPremium = member ? member.roles.cache.has(guildInfos[i].guildRole) : false
             if(hasPremium){
                 let nickname = member.nickname
