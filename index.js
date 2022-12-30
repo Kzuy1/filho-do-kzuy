@@ -61,18 +61,22 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
   }
 })
 
-// process.on('multipleResolves', (type, reason, promise) => {
-//   client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado\n\n` + type, promise, reason)
-// });
-// process.on('unhandRejection', (reason, promise) => {
-//   client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + reason, promise)
-// });
-// process.on('uncaughtException', (error, origin) => {
-//   client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + error, origin)
-// });
-// process.on('uncaughtExceptionMonitor', (error, origin) => {
-//   client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + error, origin)
-// });
+process.on('multipleResolves', (type, reason, promise) => {
+  console.log(type, promise, reason)
+  // client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado\n\n` + type, promise, reason)
+});
+process.on('unhandRejection', (reason, promise) => {
+  console.log(reason, promise)
+  // client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + reason, promise)
+});
+process.on('uncaughtException', (error, origin) => {
+  console.log(error, origin)
+  // client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + error, origin)
+});
+process.on('uncaughtExceptionMonitor', (error, origin) => {
+  console.log(error, origin)
+  // client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + error, origin)
+});
 
 async function connectToDatabase() {
   const connection = await connect(config.mongo_url, {})
