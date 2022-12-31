@@ -12,7 +12,7 @@ module.exports = {
     }
 
     if (message.guildId != "831483672065736704") return;
-    if (!message.member.permissions.has("MANAGE_ROLES")) {
+    if (!message.member.permissions.has(Discord.PermissionFlagsBits.ManageRoles)) {
       message.reply("Você não tem permissão!")
     } else {
       let user = message.mentions.members.first() || message.guild.members.cache.get(args[0])
@@ -34,13 +34,16 @@ module.exports = {
         { discordId: user.id },
         { atividade: 0 }
       )
-
-      const supportGuild = client.guilds.cache.get('833725119720325190')
-      const userBomb = supportGuild.members.cache.get(user.id)
-      const supportGuild2 = client.guilds.cache.get('941706531630633001')
-      const userBomb2 = supportGuild2.members.cache.get(user.id)
-      try { userBomb.kick("Expulso da Guilda") } catch (error) {}
-      try { userBomb2.kick("Expulso da Guilda") } catch (error) {}
+      
+      let supportGuild, userBomb, supportGuild2, userBomb2
+      
+      try {supportGuild = await client.guilds.cache.get('833725119720325190')} catch (err) {}
+      try {userBomb = await supportGuild.members.fetch(user.id)} catch (err) {}
+      try {supportGuild2 = await client.guilds.cache.get('941706531630633001')} catch (err) {}
+      try {userBomb2 = await supportGuild2.members.fetch(user.id)} catch (err) {}
+      
+      try { userBomb.kick("Expulso da Guilda") } catch (err) {}
+      try { userBomb2.kick("Expulso da Guilda") } catch (err) {}
 
       for(i = 0; i < roleC.length; i++){
         if (!roles.includes(roleC[i])) {

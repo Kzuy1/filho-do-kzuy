@@ -25,7 +25,7 @@ module.exports = {
             break;
 
             default:
-                return
+                return message.reply("Esse comando não funciona nesse servidor!")
 
         }
         

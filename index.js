@@ -9,7 +9,6 @@ client.on("ready", () => {
   console.log("Estou Online!")
 })
 
-
 client.on("raw", async dados => {
   if (dados.t !== "MESSAGE_REACTION_ADD" && dados.t !== "MESSAGE_REACTION_REMOVE") return
   if (dados.d.message_id === "1008456938129981491") {
@@ -54,31 +53,25 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
   let teste1 = oldMember._roles.includes("965732206578393138")
   let teste2 = newMember._roles.includes("965732206578393138")
   if (teste1 && !teste2) {
-    oldMember.guild.channels.cache.get("1001970079040290856").send(`O Player <@${oldMember.id}> ou **${oldMember.nickname}** perdeu tag Pass.`)
+    oldMember.guild.channels.cache.get("1001970079040290856").send(`O Player <@${oldMember.id}> ou **${oldMember.nickname}** perdeu tag Pass :x:`)
   }
   if (!teste1 && teste2) {
-    oldMember.guild.channels.cache.get("1001970079040290856").send(`O Player <@${oldMember.id}> ou **${oldMember.nickname}** recebeu tag Pass.`)
+    oldMember.guild.channels.cache.get("1001970079040290856").send(`O Player <@${oldMember.id}> ou **${oldMember.nickname}** recebeu tag Pass :white_check_mark:`)
   }
 })
 
-process.on('multipleResolves', (type, reason, promise) => {
-  console.log(type, promise, reason)
-  // client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado\n\n` + type, promise, reason)
-});
 process.on('unhandRejection', (reason, promise) => {
-  console.log(reason, promise)
-  // client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + reason, promise)
+  client.channels.cache.get("1017933097653776484").send(`🚫 Unhandled Promise Rejection:\n\n` + reason, promise)
 });
 process.on('uncaughtException', (error, origin) => {
-  console.log(error, origin)
-  // client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + error, origin)
+  client.channels.cache.get("1017933097653776484").send(`🚫 Uncaught Promise Exception:\n\n` + error, origin)
 });
 process.on('uncaughtExceptionMonitor', (error, origin) => {
-  console.log(error, origin)
-  // client.channels.cache.get("1017933097653776484").send(`🚫 Erro Detectado:\n\n` + error, origin)
+  client.channels.cache.get("1017933097653776484").send(`🚫 Uncaught Promise Exception (Monitor):\n\n` + error, origin)
 });
 
 async function connectToDatabase() {
+  mongoose.set("strictQuery", false)
   const connection = await connect(config.mongo_url, {})
   console.log('Database conectada com sucesso!')
 

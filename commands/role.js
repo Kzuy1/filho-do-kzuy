@@ -7,8 +7,8 @@ module.exports = {
 
     run: async(client, message, args) => {
         function embed (){
-            const exampleEmbed = new Discord.MessageEmbed()
-            .setColor('RANDOM')
+            const exampleEmbed = new Discord.EmbedBuilder()
+            .setColor('Random')
             .setTitle('**Escolha uma classe principal e secundário**')
             .setDescription(`**1 - Tank\n2 - Healer\n3 - Suporte\n4 - Ranged\n5 - Melee**\n\nk!role <role1> <role2>`)
             .addFields(
