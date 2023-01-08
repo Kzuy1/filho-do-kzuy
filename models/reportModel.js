@@ -1,13 +1,20 @@
 const mongoose = require('mongoose');
 
 const reportModel = new mongoose.Schema({
-    nickname: mongoose.SchemaTypes.String,
+    nickname: {
+        type: mongoose.SchemaTypes.String,
+        require: true
+    },
     discordId: {
         type: mongoose.SchemaTypes.String,
         required: true,
     },
     atividade: {
         type: mongoose.SchemaTypes.Number,
+        required: true,
+    },
+    servidor: {
+        type: mongoose.SchemaTypes.String,
         required: true,
     },
     role: {

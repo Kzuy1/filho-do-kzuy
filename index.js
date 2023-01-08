@@ -60,15 +60,15 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
   }
 })
 
-process.on('unhandRejection', (reason, promise) => {
-  client.channels.cache.get("1017933097653776484").send(`🚫 Unhandled Promise Rejection:\n\n` + reason, promise)
-});
-process.on('uncaughtException', (error, origin) => {
-  client.channels.cache.get("1017933097653776484").send(`🚫 Uncaught Promise Exception:\n\n` + error, origin)
-});
-process.on('uncaughtExceptionMonitor', (error, origin) => {
-  client.channels.cache.get("1017933097653776484").send(`🚫 Uncaught Promise Exception (Monitor):\n\n` + error, origin)
-});
+// process.on('unhandRejection', (reason, promise) => {
+//   client.channels.cache.get("1017933097653776484").send(`🚫 Unhandled Promise Rejection:\n\n` + reason, promise)
+// });
+// process.on('uncaughtException', (error, origin) => {
+//   client.channels.cache.get("1017933097653776484").send(`🚫 Uncaught Promise Exception:\n\n` + error, origin)
+// });
+// process.on('uncaughtExceptionMonitor', (error, origin) => {
+//   client.channels.cache.get("1017933097653776484").send(`🚫 Uncaught Promise Exception (Monitor):\n\n` + error, origin)
+// });
 
 async function connectToDatabase() {
   mongoose.set("strictQuery", false)
