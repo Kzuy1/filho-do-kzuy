@@ -31,7 +31,7 @@ module.exports = {
             setTimeout(function(){ targetUser.roles.add("849727477265334312") }, 500)
             message.reply(`Usuário <@${targetUser.id}> cadastrado.`)
         } else if(guild == "1060614825899728986"){
-            targetUser.setNickname(`VD | ${dados[0].nickname}`)
+            targetUser.setNickname(`VOD | ${dados[0].nickname}`)
             setTimeout(function(){ targetUser.roles.add("1060614826025558040") }, 500)
             setTimeout(function(){ targetUser.roles.add("1060614826004578386") }, 500)
             setTimeout(function(){ targetUser.roles.add("1060614825983623203") }, 500)

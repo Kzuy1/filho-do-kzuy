@@ -49,6 +49,19 @@ client.on("guildMemberRemove", async guildRemove => {
   }
 })
 
+client.on("guildMemberRemove", async guildRemove => {
+  if (guildRemove.guild.id != "1060614825899728986") return;
+  let role = guildRemove._roles
+  if (role.includes('1060614826025558040')) {
+    const update = await report.findOneAndUpdate(
+      { discordId: guildRemove.id },
+      { atividade: 0 }
+    )
+    guildRemove.guild.channels.cache.get("1060614827535499380").send(`O Player <@${guildRemove.id}> ou **${guildRemove.nickname}** saiu do Servidor. Não está sendo considerado mais como membro da Guilda.`)
+  }
+})
+
+
 client.on("guildMemberUpdate", async (oldMember, newMember) => {
   let teste1 = oldMember._roles.includes("965732206578393138")
   let teste2 = newMember._roles.includes("965732206578393138")
