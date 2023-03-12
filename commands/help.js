@@ -15,6 +15,7 @@ module.exports = {
           { name: 'k!relatorio', value: '-', inline: false },
           { name: 'k!registro', value: '-', inline: false },
           { name: 'k!remove', value: 'k!remove <@Usuario>', inline: false },
+          { name: 'k!remove-amigo', value: 'k!remove-amigo <@Usuario>', inline: false },
           { name: 'k!role', value: 'k!role <role1> <role2>', inline: false },
           { name: 'k!warn', value: 'k!warn <@Usuario>', inline: false },
       )
