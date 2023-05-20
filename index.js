@@ -1,9 +1,20 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const { connect, default: mongoose } = require('mongoose');
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent] })
-const config = require("./config.json")
-const fs = require('fs')
-const report = require("./models/reportModel.js")
+const config = require("./config.json");
+const report = require("./models/reportModel.js");
+const autoroleReactions = require('./reactions/autorole.js');
+
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildMessageReactions,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildPresences,
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.MessageContent
+  ]
+});
 
 client.on("ready", () => {
   console.log("Estou Online!")
@@ -46,18 +57,6 @@ client.on("guildMemberRemove", async guildRemove => {
       { atividade: 0 }
     )
     guildRemove.guild.channels.cache.get("1002755996902506586").send(`O Player <@${guildRemove.id}> ou **${guildRemove.nickname}** saiu do Servidor. Não está sendo considerado mais como membro da Guilda.`)
-  }
-})
-
-client.on("guildMemberRemove", async guildRemove => {
-  if (guildRemove.guild.id != "1060614825899728986") return;
-  let role = guildRemove._roles
-  if (role.includes('1060614826025558040')) {
-    const update = await report.findOneAndUpdate(
-      { discordId: guildRemove.id },
-      { atividade: 0 }
-    )
-    guildRemove.guild.channels.cache.get("1060614827535499380").send(`O Player <@${guildRemove.id}> ou **${guildRemove.nickname}** saiu do Servidor. Não está sendo considerado mais como membro da Guilda.`)
   }
 })
 

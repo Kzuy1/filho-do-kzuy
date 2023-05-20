@@ -9,7 +9,7 @@ module.exports = {
       if(message.guildId != "831483672065736704") return
       if(!(message.member.roles.cache.has("831483672099684352") || message.author.id == "307683313982767104")) return message.reply("Somente o Kzuy, Chakzzz ou Ana pode utilizar esse comando!");
 
-      const canal = client.channels.cache.get("831483673215369218")
+      const canal = await client.channels.fetch("831483673215369218")
       const members= canal.members.map(x => x.id)
 
       const date = new Date()
