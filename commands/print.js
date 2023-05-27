@@ -1,4 +1,4 @@
-const Discord = require("discord.js")
+const { PermissionFlagsBits } = require("discord.js");
 const fs = require('fs')
 const report = require("../models/reportModel.js")
 
@@ -7,11 +7,22 @@ module.exports = {
 
     run: async(client, message, args) => {
       if(message.guildId != "831483672065736704") return
-      if(!(message.member.roles.cache.has("831483672099684352") || message.author.id == "307683313982767104")) return message.reply("Somente o Kzuy, Chakzzz ou Ana pode utilizar esse comando!");
 
-      const canal = await client.channels.fetch("831483673215369218")
-      const members= canal.members.map(x => x.id)
+      if(!message.member.permissions.has(PermissionFlagsBits.ManageRoles)) {
+        return message.reply("Você não tem permissão!")
+      }
 
+      const canalIds = ["831483673215369218", "832386708413743124", "832386687094620200", "832386659370663977", "950945707844591626"]; 
+
+      const members = [];
+
+      for (const channelId of canalIds) {
+        const canal = await client.channels.fetch(channelId);
+        const channelMembers = canal.members.map((x) => x.id);
+        members.push(...channelMembers);
+        
+      }
+      
       const date = new Date()
       let year = date.getFullYear()
       let month = String(date.getMonth() + 1).padStart(2, '0')
