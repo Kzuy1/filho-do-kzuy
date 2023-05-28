@@ -43,11 +43,10 @@ module.exports = {
                 )
             }
 
-            if(guild == 1){
-                message.reply(`Usuário <@${user.id}> cadastrado.\nBem-Vindo <@${user.id}> a **VOODOO** para receber cargo entre no servidor e digite k!registro\nhttps://discord.gg/qrGHhrt5Sa`)
-            } else{
-                message.reply(`Usuário <@${user.id}> cadastrado.\nBem-Vindo <@${user.id}> a **VOODOO** para receber cargo entre no servidor e digite k!registro\nhttps://discord.gg/A3QkmBnU2X`)
-            }
+            const channel = client.channels.cache.get('1061323887373197312');
+            const invite = await channel.createInvite({ maxUses: 1 });
+
+            message.reply(`Usuário <@${user.id}> cadastrado.\nBem-Vindo <@${user.id}> a **VOODOO** para receber cargo entre no servidor e digite k!registro\n${invite}`)
 
         }  
     }

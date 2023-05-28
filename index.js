@@ -73,12 +73,15 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
 })
 
 process.on('unhandRejection', (reason, promise) => {
+  console.log(`🚫 Unhandled Promise Rejection:\n\n` + reason, promise);
   client.channels.cache.get("1017933097653776484").send(`🚫 Unhandled Promise Rejection:\n\n` + reason, promise)
 });
 process.on('uncaughtException', (error, origin) => {
+  console.log(`🚫 Uncaught Promise Exception:\n\n` + error, origin);
   client.channels.cache.get("1017933097653776484").send(`🚫 Uncaught Promise Exception:\n\n` + error, origin)
 });
 process.on('uncaughtExceptionMonitor', (error, origin) => {
+  console.log(`🚫 Uncaught Promise Exception (Monitor):\n\n` + error, origin);
   client.channels.cache.get("1017933097653776484").send(`🚫 Uncaught Promise Exception (Monitor):\n\n` + error, origin)
 });
 
