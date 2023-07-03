@@ -6,7 +6,7 @@ module.exports = {
     name: "registro",
 
     run: async(client, message, args) => {
-        if(!(message.guildId != "831483672065736704")) return
+        if(message.guildId != "831483672065736704") return
         let targetUser = message.guild.members.cache.get(message.author.id)
         let dados = await report?.find({discordId: targetUser.id}).exec()
     

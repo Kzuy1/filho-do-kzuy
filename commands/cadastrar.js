@@ -12,7 +12,7 @@ module.exports = {
             message.reply("Você não tem permissão!")
         } else {
             let user = message.mentions.members.first()  || message.guild.members.cache.get(args[0])
-            let nickname = args[2]
+            let nickname = args[1]
             if(!user) return message.reply("Membro não especificado! k!cadastrar <@Usuario> <Nickname>")
             if(!nickname) return message.reply("Nickname não especificado! k!cadastrar <@Usuario> <Nickname>")
 
