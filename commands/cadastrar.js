@@ -13,8 +13,8 @@ module.exports = {
         } else {
             let user = message.mentions.members.first()  || message.guild.members.cache.get(args[0])
             let nickname = args[2]
-            if(!user) return message.reply("Membro não especificado! k!cadastrar <@Usuario> <1-2> <Nickname>")
-            if(!nickname) return message.reply("Nickname não especificado! k!cadastrar <@Usuario> <1-2> <Nickname>")
+            if(!user) return message.reply("Membro não especificado! k!cadastrar <@Usuario> <Nickname>")
+            if(!nickname) return message.reply("Nickname não especificado! k!cadastrar <@Usuario> <Nickname>")
 
             let dados = await report?.find({discordId: user.id}).exec()
 

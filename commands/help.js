@@ -8,7 +8,7 @@ module.exports = {
       .setColor('Random')
       .setTitle('Help Menu')
       .addFields(
-          { name: 'k!cadastrar', value: 'k!cadastrar <@Usuario> <1-2> <Nickname>', inline: false },
+          { name: 'k!cadastrar', value: 'k!cadastrar <@Usuario> <Nickname>', inline: false },
           { name: 'k!listawarn', value: 'k!listawarn <@Usuario>', inline: false },
           { name: 'k!perm', value: '-', inline: false },
           { name: 'k!print', value: '-', inline: false },
