@@ -6,7 +6,7 @@ module.exports = {
     name: "addguild",
 
     run: async(client, message, args) => {
-        if(message.author.id != "307683313982767104") return message.reply("Somente o Kzuy pode utilizar esse comando!");
+        if(!(message.author.id == "307683313982767104" || message.author.id == "443216944783425546")) return message.reply("Somente o Kzuy pode utilizar esse comando!");
         try {args[0] = args[0].replace(/\D/g, '')} catch (error) { }
         let guildRoleId = args[0]
         if(!guildRoleId) return message.reply("Role não especificada! k!addguild <@RoleGuild> <1-2> <NameGuild> <IdRoleAlly>");

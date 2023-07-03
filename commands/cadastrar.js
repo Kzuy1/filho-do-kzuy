@@ -12,12 +12,9 @@ module.exports = {
             message.reply("Você não tem permissão!")
         } else {
             let user = message.mentions.members.first()  || message.guild.members.cache.get(args[0])
-            let guild =  args[1]
             let nickname = args[2]
             if(!user) return message.reply("Membro não especificado! k!cadastrar <@Usuario> <1-2> <Nickname>")
-            if(!guild) return message.reply("Guild não especificado! k!cadastrar <@Usuario> <1-2> <Nickname>")
             if(!nickname) return message.reply("Nickname não especificado! k!cadastrar <@Usuario> <1-2> <Nickname>")
-            if(guild < 1 || 2 < guild) return message.reply("Guild precisa ser entre 1 ou 2!")
 
             let dados = await report?.find({discordId: user.id}).exec()
 
@@ -26,7 +23,7 @@ module.exports = {
                     nickname: nickname,
                     discordId: user.id,
                     atividade: 1,
-                    servidor: guild,
+                    servidor: 1,
                     role: "",
                     report: ""
                 })
@@ -38,13 +35,13 @@ module.exports = {
                     {
                         nickname: nickname,
                         atividade: 1,
-                        servidor: guild
+                        servidor: 1
                     }
                 )
             }
 
             const channel = client.channels.cache.get('1061323887373197312');
-            const invite = await channel.createInvite({ maxUses: 1 });
+            const invite = await channel.createInvite({ maxUses: 1, maxAge: Math.floor(Math.random() * 86400) + 3600});
 
             message.reply(`Usuário <@${user.id}> cadastrado.\nBem-Vindo <@${user.id}> a **VOODOO** para receber cargo entre no servidor e digite k!registro\n${invite}`)
 
