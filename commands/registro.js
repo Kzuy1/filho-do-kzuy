@@ -14,7 +14,7 @@ module.exports = {
             return message.reply("Usuário não recrutado!\nhttps://discord.gg/ubXuX3t7T4");
         }
 
-        await targetUser.setNickname(`GN | ${dados[0].nickname}`);
+        await targetUser.setNickname(`V | ${dados[0].nickname}`);
         await targetUser.roles.add("1060614826025558040");
         await targetUser.roles.remove("1139759898029199361");
 
