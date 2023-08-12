@@ -6,13 +6,13 @@ module.exports = {
     name: "print",
 
     run: async(client, message, args) => {
-      if(message.guildId != "831483672065736704") return
+      if(message.guildId != "1060614825899728986") return
 
       if(!message.member.permissions.has(PermissionFlagsBits.ManageRoles)) {
         return message.reply("Você não tem permissão!")
       }
 
-      const canalIds = ["831483673215369218", "832386708413743124", "832386687094620200", "832386659370663977", "950945707844591626"]; 
+      const canalIds = ["1060614828651200517", "1060614828651200518", "1060614828651200519","1060614828651200520"]; 
 
       const members = [];
 

@@ -6,7 +6,6 @@ module.exports = {
     name: "cadastrar",
 
     run: async(client, message, args) => {
-
         if(message.guildId != "1060678186490396816") return;
         if(!message.member.permissions.has(Discord.PermissionFlagsBits.ManageRoles)) {
             message.reply("Você não tem permissão!")
@@ -23,7 +22,6 @@ module.exports = {
                     nickname: nickname,
                     discordId: user.id,
                     atividade: 1,
-                    servidor: 1,
                     role: "",
                     report: ""
                 })
@@ -35,15 +33,14 @@ module.exports = {
                     {
                         nickname: nickname,
                         atividade: 1,
-                        servidor: 1
                     }
                 )
             }
 
-            const channel = client.channels.cache.get('1061323887373197312');
+            const channel = client.channels.cache.get('1083896216108159056');
             const invite = await channel.createInvite({ maxUses: 1, maxAge: Math.floor(Math.random() * 86400) + 3600});
 
-            message.reply(`Usuário <@${user.id}> cadastrado.\nBem-Vindo <@${user.id}> a **VOODOO** para receber cargo entre no servidor e digite k!registro\n${invite}`)
+            message.reply(`Usuário <@${user.id}> cadastrado.\nBem-Vindo <@${user.id}>, para receber cargo entre no servidor e digite k!registro\n${invite}`)
 
         }  
     }

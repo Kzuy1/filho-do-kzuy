@@ -6,7 +6,7 @@ module.exports = {
   name: "remove",
 
   run: async (client, message, args) => {
-    if(!(message.guildId != "831483672065736704" || message.guildId != "1060614825899728986")) return
+    if(message.guildId != "1060614825899728986") return
     if (!message.member.permissions.has(Discord.PermissionFlagsBits.ManageRoles)) {
       message.reply("Você não tem permissão!")
     } else {

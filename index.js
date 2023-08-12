@@ -2,7 +2,6 @@ const { Client, GatewayIntentBits } = require('discord.js');
 const { connect, default: mongoose } = require('mongoose');
 const config = require("./config.json");
 const report = require("./models/reportModel.js");
-const autoroleReactions = require('./reactions/autorole.js');
 
 const client = new Client({
   intents: [
@@ -18,18 +17,6 @@ const client = new Client({
 
 client.on("ready", () => {
   console.log("Estou Online!")
-})
-
-client.on("raw", async dados => {
-  if (dados.t !== "MESSAGE_REACTION_ADD" && dados.t !== "MESSAGE_REACTION_REMOVE") return
-  if (dados.d.message_id === "1008456938129981491") {
-    try {
-      const commandReactions = require(`./reactions/autorole.js`)
-      commandReactions.run(client, dados)
-    } catch (err) {
-      console.log(err)
-    }
-  }
 })
 
 client.on("messageCreate", async message => {
@@ -48,27 +35,14 @@ client.on("messageCreate", async message => {
 });
 
 client.on("guildMemberRemove", async guildRemove => {
-  if (guildRemove.guild.id != "831483672065736704") return;
-  const roleIDs = ['832369903951675473', '925546014193090600'];
+  if (guildRemove.guild.id != "1060614825899728986") return;
   let role = guildRemove._roles
-  if (role.includes('832369903951675473') || role.includes('925546014193090600')) {
+  if (role.includes('1060614826025558040')) {
     const update = await report.findOneAndUpdate(
       { discordId: guildRemove.id },
       { atividade: 0 }
     )
-    guildRemove.guild.channels.cache.get("1002755996902506586").send(`O Player <@${guildRemove.id}> ou **${guildRemove.nickname}** saiu do Servidor. Não está sendo considerado mais como membro da Guilda.`)
-  }
-})
-
-
-client.on("guildMemberUpdate", async (oldMember, newMember) => {
-  let teste1 = oldMember._roles.includes("965732206578393138")
-  let teste2 = newMember._roles.includes("965732206578393138")
-  if (teste1 && !teste2) {
-    oldMember.guild.channels.cache.get("1001970079040290856").send(`O Player <@${oldMember.id}> ou **${oldMember.nickname}** perdeu tag Pass :x:`)
-  }
-  if (!teste1 && teste2) {
-    oldMember.guild.channels.cache.get("1001970079040290856").send(`O Player <@${oldMember.id}> ou **${oldMember.nickname}** recebeu tag Pass :white_check_mark:`)
+    guildRemove.guild.channels.cache.get("1139767587102789734").send(`O Player <@${guildRemove.id}> ou **${guildRemove.nickname}** saiu do Servidor. Não está sendo considerado mais como membro da Guilda.`)
   }
 })
 

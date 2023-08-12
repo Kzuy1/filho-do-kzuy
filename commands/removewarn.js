@@ -6,7 +6,7 @@ module.exports = {
     name: "removewarn",
 
     run: async(client, message, args) => {
-        if (message.guildId != "831483672065736704") return;
+        if (message.guildId != "1060614825899728986") return;
         if(message.author.id != "307683313982767104") return message.reply("Somente o Kzuy pode utilizar esse comando!");
         if(!message.member.permissions.has(Discord.PermissionFlagsBits.ManageRoles)) {
             message.reply("Você não tem permissão!")

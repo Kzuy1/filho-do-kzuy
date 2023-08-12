@@ -6,7 +6,7 @@ module.exports = {
   name: "remove-amigo",
 
   run: async (client, message, args) => {
-    if (!(message.guildId != "831483672065736704" || message.guildId != "1060614825899728986")) return
+    if (message.guildId != "1060614825899728986") return
     if (!message.member.permissions.has(Discord.PermissionFlagsBits.ManageRoles)) {
       message.reply("Você não tem permissão!")
     } else {
@@ -51,7 +51,7 @@ module.exports = {
       }
 
       user.setNickname("")
-      user.roles.add("832425621707685938");
+      user.roles.add("1139759898029199361");
       message.reply(`Expurgo de ${user} quase terminando, por que recebeu tag de Amigo.`)
     }
 

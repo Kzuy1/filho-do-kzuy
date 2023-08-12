@@ -19,7 +19,7 @@ module.exports = {
             return
 
         }
-        if(message.guildId != "831483672065736704") return;
+        if(message.guildId != "1060614825899728986") return;
         if((args[0] == undefined) || (args[1] == undefined)) return embed()
         if((args[0] > 5) || (args[0] < 1)) return embed()
         if((args[1] > 5) || (args[1] < 1)) return embed()
@@ -72,7 +72,7 @@ module.exports = {
                     
             }
         }
-        message.member.setNickname(`VD | ${roles[0]} - ${roles[1]} | ${nickname}`)
+        message.member.setNickname(`GN | ${roles[0]} - ${roles[1]} | ${nickname}`)
         const  update = await report.findOneAndUpdate(
             {discordId: targetUser},
             {role: [roles1[0], roles1[1]]}

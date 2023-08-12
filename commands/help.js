@@ -12,7 +12,6 @@ module.exports = {
           { name: 'k!listawarn', value: 'k!listawarn <@Usuario>', inline: false },
           { name: 'k!perm', value: '-', inline: false },
           { name: 'k!print', value: '-', inline: false },
-          { name: 'k!relatorio', value: '-', inline: false },
           { name: 'k!registro', value: '-', inline: false },
           { name: 'k!remove', value: 'k!remove <@Usuario>', inline: false },
           { name: 'k!remove-amigo', value: 'k!remove-amigo <@Usuario>', inline: false },
